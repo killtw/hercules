@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  hercules:
+    build: .
+    restart: on-failure
+    volumes:
+      - ${PWD}/.env:/.env
+    ports:
+      - "8080:8080"
