@@ -34,6 +34,10 @@ func (s server) setUserMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
 
 func (s server) setDbMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
     return func(c echo.Context) error {
+        if s.config.Debug {
+            s.db = s.db.Debug()
+        }
+
         ctx := context.WithValue(c.Request().Context(), "db", s.db)
         c.SetRequest(c.Request().WithContext(ctx))
 

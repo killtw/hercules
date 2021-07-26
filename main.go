@@ -10,5 +10,5 @@ func main() {
     configure := config.New()
     db := database.New(configure.Database)
 
-    server.New(configure.Server, db).Run()
+    server.New(configure, db).Run()
 }

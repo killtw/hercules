@@ -27,7 +27,7 @@ func New(c *config.Database) *gorm.DB {
     db, err := gorm.Open(driver, &gorm.Config{})
 
     if err != nil {
-        panic(err)
+        log.Fatalln(err)
     }
 
     return db
