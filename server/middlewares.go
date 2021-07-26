@@ -19,11 +19,10 @@ func (s server) setUserMiddleware(next echo.HandlerFunc) echo.HandlerFunc {
             c.SetCookie(cookie)
         } else {
             cookie, err := c.Cookie("UID")
-            if err != nil {
-                return err
-            }
 
-            uid = cookie.Value
+            if err == nil {
+                uid = cookie.Value
+            }
         }
 
         ctx := context.WithValue(c.Request().Context(), "uid", uid)
