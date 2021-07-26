@@ -2,7 +2,7 @@ package server
 
 import (
     "github.com/labstack/echo/v4"
-    "hercules/handlers"
+    "github.com/killtw/hercules/handlers"
     "net/http"
 )
 

@@ -1,9 +1,9 @@
 package main
 
 import (
-    "hercules/config"
-    "hercules/database"
-    "hercules/server"
+    "github.com/killtw/hercules/config"
+    "github.com/killtw/hercules/database"
+    "github.com/killtw/hercules/server"
 )
 
 func main() {

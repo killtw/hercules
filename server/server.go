@@ -5,7 +5,7 @@ import (
     "github.com/labstack/echo/v4"
     "github.com/labstack/echo/v4/middleware"
     "gorm.io/gorm"
-    "hercules/config"
+    "github.com/killtw/hercules/config"
     "net/http"
     "os"
     "os/signal"

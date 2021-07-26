@@ -2,10 +2,10 @@ package database
 
 import (
     "fmt"
+    "github.com/killtw/hercules/config"
     "gorm.io/driver/mysql"
     "gorm.io/driver/sqlite"
     "gorm.io/gorm"
-    "hercules/config"
 )
 
 func New(c *config.Database) *gorm.DB {
