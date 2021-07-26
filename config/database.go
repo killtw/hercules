@@ -12,12 +12,12 @@ type Database struct {
 }
 
 func newDatabase() *Database {
-    viper.SetDefault("DB_CONNECTION", "mysql")
-    viper.SetDefault("DB_HOST", "127.0.0.1")
-    viper.SetDefault("DB_PORT", "3306")
-    viper.SetDefault("DB_DATABASE", "homestead")
-    viper.SetDefault("DB_USERNAME", "homestead")
-    viper.SetDefault("DB_PASSWORD", "secret")
+    viper.SetDefault("DB_CONNECTION", "sqlite")
+    viper.SetDefault("DB_HOST", "database/database.sqlite")
+    viper.SetDefault("DB_PORT", "")
+    viper.SetDefault("DB_DATABASE", "")
+    viper.SetDefault("DB_USERNAME", "")
+    viper.SetDefault("DB_PASSWORD", "")
 
     return &Database{
         Connection: viper.GetString("DB_CONNECTION"),
