@@ -35,13 +35,13 @@ func (s server) Run() {
         s.echo.Use(s.setUserMiddleware)
     }
     s.echo.Use(s.setDbMiddleware)
+    s.echo.Use(middleware.CORS())
     s.echo.Use(middleware.Gzip())
     s.echo.Use(middleware.Logger())
     s.echo.Use(middleware.Recover())
 
     s.echo.HideBanner = true
     s.echo.Renderer = LayoutTemplate
-
     s.echo.Debug = s.config.Debug
 
     s.echo.Static("/js", "public/js")
