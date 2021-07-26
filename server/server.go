@@ -24,6 +24,12 @@ func New(config *config.Config, db *gorm.DB) *server {
     return &server{config, db, e}
 }
 
+func (s server) Routes(fn func(e *echo.Echo)) *server {
+    fn(s.echo)
+
+    return &s
+}
+
 func (s server) Run() {
     if s.config.Server.UID {
         s.echo.Use(s.setUserMiddleware)
@@ -42,7 +48,9 @@ func (s server) Run() {
     s.echo.Static("/images", "public/images")
     s.echo.Static("/css", "public/css")
 
-    s.routerConfigure(e)
+    s.echo.GET("healthz", func(c echo.Context) error {
+        return c.NoContent(http.StatusOK)
+    })
 
     go func() {
         if err := s.echo.Start(":8080"); err != nil && err != http.ErrServerClosed {
